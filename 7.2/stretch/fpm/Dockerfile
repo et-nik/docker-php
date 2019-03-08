@@ -13,6 +13,7 @@ RUN apt-get -y update && apt-get -y install \
         bzip2 \
         libbz2-dev \
         libxml2-dev \
+        libgmp-dev \
     --no-install-recommends && rm -r /var/lib/apt/lists/*
 
 RUN docker-php-ext-install bcmath \
@@ -33,6 +34,8 @@ RUN docker-php-ext-install bcmath \
         sysvshm \
         wddx \
         zip \
-        opcache
+        opcache \
+        gmp \
+        intl
 
 RUN echo "date.timezone = Europe/Moscow" > /usr/local/etc/php/php.ini
