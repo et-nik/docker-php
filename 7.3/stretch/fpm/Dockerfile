@@ -14,6 +14,7 @@ RUN apt-get -y update && apt-get -y install \
         libmemcached-dev \
         bzip2 \
         libbz2-dev \
+        libzip-dev \
         libxml2-dev \
         libgmp-dev \
     --no-install-recommends && rm -r /var/lib/apt/lists/*
