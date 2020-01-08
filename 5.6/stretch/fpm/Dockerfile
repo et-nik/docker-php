@@ -4,7 +4,9 @@ RUN apt-get -y update && apt-get -y install \
         libmcrypt-dev \
         libc-dev \
         libfreetype6 \
+        libfreetype6-dev \
         libjpeg-dev \
+        libjpeg62-turbo-dev \
         libxpm-dev \
         libpng-dev \
         libicu-dev  \
@@ -15,13 +17,16 @@ RUN apt-get -y update && apt-get -y install \
         libxml2-dev \
     --no-install-recommends && rm -r /var/lib/apt/lists/*
 
-RUN docker-php-ext-install bcmath \
+RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install \
+        bcmath \
         bz2 \
         calendar \
         dba \
         exif \
         gd \
         gettext \
+        mysql \
         mysqli \
         pcntl \
         pdo_mysql \
