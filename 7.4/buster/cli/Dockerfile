@@ -19,7 +19,7 @@ RUN apt-get -y update && apt-get -y install \
         libgmp-dev \
     --no-install-recommends && rm -r /var/lib/apt/lists/*
 
-RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install \
         bcmath \
         bz2 \
