@@ -37,7 +37,6 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
         sysvmsg \
         sysvsem \
         sysvshm \
-        wddx \
         zip \
         opcache \
         gmp \
