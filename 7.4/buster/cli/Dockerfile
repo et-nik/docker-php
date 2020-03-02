@@ -1,6 +1,9 @@
 FROM php:7.4-cli-buster
 
-RUN apt-get -y update && apt-get -y install \
+ENV TZ=Europe/Moscow
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
+    && apt-get -y update && apt-get -y install \
         libmcrypt-dev \
         libc-dev \
         libfreetype6 \
@@ -40,6 +43,5 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
         zip \
         opcache \
         gmp \
-        intl
-
-RUN echo "date.timezone = Europe/Moscow" > /usr/local/etc/php/php.ini
+        intl \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
