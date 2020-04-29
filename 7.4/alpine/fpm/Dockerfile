@@ -43,4 +43,5 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
         zip \
         opcache \
         gmp \
-        intl
+        intl \
+    && rm -rf /usr/src/php/*

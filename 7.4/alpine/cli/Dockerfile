@@ -44,4 +44,5 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
         opcache \
         gmp \
         intl \
-    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+    && rm -rf /usr/src/php/*
